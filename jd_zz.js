@@ -272,7 +272,8 @@ function getUserInfo() {
             if (data.data.shareTaskRes) {
               console.log(`\n【京东账号${$.index}（${$.nickName || $.UserName}）的${$.name}好友互助码】${data.data.shareTaskRes.itemId}\n`);
             } else {
-              console.log(`\n\n已满5人助力或助力功能已下线,故暂时无${$.name}好友助力码  ${data.data} \n\n`)
+              var aaa = JSON.stringify(data);
+              console.log(`\n\n已满5人助力或助力功能已下线,故暂时无${$.name}好友助力码 --- ${aaa} \n\n`)
             }
           }
         }
