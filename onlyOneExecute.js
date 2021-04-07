@@ -6,9 +6,7 @@ const smartReplace = require("./smartReplace");
 async function changeFiele() {
     let response = await axios.get(process.env.SYNCURL);
     let content = response.data;
-    console.log(`1111 ${content}`)
     content = await smartReplace.inject(content);
-    console.log(`2222 ${content}`)
     await fs.writeFileSync("./executeOnce.js", content, "utf8");
     console.log("替换变量完毕");
 }
@@ -26,12 +24,10 @@ async function start() {
     }
 
     try {
-        console.log("1111")
         await changeFiele();
-         console.log("2222")
         await exec("node executeOnce.js", { stdio: "inherit" });
     } catch (e) {
-        console.log("执行异常！！:" + e);
+        console.log("执行异常:" + e);
     }
     console.log("执行完毕");
 }
