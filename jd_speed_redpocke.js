@@ -120,6 +120,9 @@ async function redPacket() {
         } else {
           if (safeGet(data)) {
             data = JSON.parse(data);
+            var bbb = JSON.stringify(data)
+            console.log(`${bbb}`)
+            console.log("bbb111")
             if (data.code === 0) {
               if (data.data.received.prizeType !== 1) {
                 message += `获得${data.data.received.prizeDesc}`
@@ -163,8 +166,7 @@ function invite() {
     body: dataString
   };
   $.post(options, (err, resp, data) => {
-     console.log("aaa222") 
-    console.log(data)
+    //console.log(data)
   })
 }
 
@@ -227,7 +229,6 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
-       console.log("aaa333")
       $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
       return [];
     }
