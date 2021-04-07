@@ -128,6 +128,7 @@ async function redPacket() {
                 console.log("获得优惠券")
               }
             } else {
+              console.log("aaa111")
               console.log(data.errMsg)
             }
           }
@@ -162,7 +163,8 @@ function invite() {
     body: dataString
   };
   $.post(options, (err, resp, data) => {
-     //console.log(data)
+     console.log("aaa222") 
+    console.log(data)
   })
 }
 
@@ -225,6 +227,7 @@ function jsonParse(str) {
       return JSON.parse(str);
     } catch (e) {
       console.log(e);
+       console.log("aaa333")
       $.msg($.name, '', '请勿随意在BoxJs输入框修改内容\n建议通过脚本去获取cookie')
       return [];
     }
