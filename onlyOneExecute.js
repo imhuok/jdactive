@@ -8,6 +8,7 @@ async function changeFiele() {
     let content = response.data;
     content = await smartReplace.inject(content);
     await fs.writeFileSync("./executeOnce.js", content, "utf8");
+    console.log(`${content}`)
     console.log("替换变量完毕");
 }
 
